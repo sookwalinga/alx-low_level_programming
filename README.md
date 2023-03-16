@@ -12,7 +12,7 @@
 -putchar() - used to print a single character to the standard output.
 For example, to print the string "Hello, world!" using printf(), you would write:
 
-printf("Hello, world!\n");
+`printf("Hello, world!\n");`
 
 5. To get the size of a specific type using the unary operator sizeof, you would write:
 `sizeof(type)`
