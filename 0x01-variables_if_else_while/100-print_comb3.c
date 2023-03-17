@@ -1,4 +1,5 @@
 #include <stdio.h>
+
 /**
  * main - Entry point
  *
@@ -18,13 +19,14 @@ k = 10 * i + j;
 putchar((k / 10) + '0');
 putchar((k % 10) + '0');
 
-if (i < 8)
+if (i < 8 || j < 9)
 {
 putchar(',');
 putchar(' ');
 }
 }
 }
+
 putchar('\n');
 
 return (0);
