@@ -1,2 +1,2 @@
 #!/bin/bash
-gcc -S main.c -o "${main.c%.c}.s" \ as "${main.c%.c}.s" -o "${main.c%.c}.o"
+gcc -S $CFILE -o "${CFILE%.c}.s"
