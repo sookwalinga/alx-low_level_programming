@@ -3,9 +3,9 @@
 read -p "Enter commit message: " commit_msg
 
 # Ignore files with the tilde symbol
-echo "*~" >> .gitignore
+#echo "*~" >> .gitignore
 
 git add .
-git add .gitignore
+#git add .gitignore
 git commit -am "$commit_msg"
 git push
