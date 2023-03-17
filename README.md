@@ -1,4 +1,4 @@
-## Notes
+# Notes
 
 1. When you type gcc main.c, the GCC (GNU Compiler Collection) compiler is invoked to compile the C source file main.c into an executable program. The compiled program will have the default name a.out unless you specify a different name using the -o option.
 
