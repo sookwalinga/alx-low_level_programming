@@ -1,4 +1,4 @@
-#include "stdio.h"
+#include <stdio.h>
 
 /**
 * main - Entry point
@@ -12,8 +12,11 @@ char c;
 for (c = 'a'; c <= 'z'; c++)
 {
 if (c != 'e' && c != 'q')
-_putchar(c);
+{
+putchar(c);
 }
-_putchar('\n');
+}
+putchar('\n');
+
 return (0);
 }
