@@ -1,4 +1,4 @@
-##Notes
+## Notes
 1. Arithmetic operators in C include addition (+), subtraction (-), multiplication (*), division (/), and modulus (%). They are used to perform basic mathematical operations on variables and constants.
 
 2. Logical operators in C include AND (&&), OR (||), and NOT (!). They are used to evaluate logical expressions and determine whether a condition is true or false.
