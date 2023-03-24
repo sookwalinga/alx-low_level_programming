@@ -1,0 +1,13 @@
+Nested loops are loops that are placed inside the body of another loop. They are used when we need to perform a repetitive task that requires multiple iterations of an operation, and where each iteration of the outer loop triggers one or more iterations of the inner loop. For example, a nested loop can be used to traverse a 2D array or to generate all possible combinations of two sets of data.
+
+A function is a reusable block of code that performs a specific task. It can take arguments and may return a value. Functions help modularize code and make it more readable and easier to debug. To use a function, we first need to declare or define it, and then we can call it from within our program.
+
+A function declaration tells the compiler about the name of the function, the type of its return value, and the number and types of its arguments. A function definition, on the other hand, provides the actual implementation of the function. A function can be declared multiple times, but can only be defined once.
+
+A prototype is a function declaration that provides only the function's name, return type, and parameter types, but not its implementation. It is used to inform the compiler about the existence and interface of a function before its actual implementation is encountered in the code. Prototypes are typically placed in header files, which are included in source files that need to use the function.
+
+The scope of a variable is the part of the program where the variable can be accessed. In C, there are three types of scope: global, function, and block. Global variables are defined outside of any function and can be accessed by any part of the program. Function variables are defined inside a function and can only be accessed within that function. Block variables are defined inside a block of code (for example, inside a loop) and can only be accessed within that block.
+
+The gcc flags -Wall, -Werror, -pedantic, -Wextra, and -std=gnu89 are command-line options that can be used when compiling C code with the gcc compiler. They enable additional warnings and error messages, enforce strict adherence to the C standard, and specify the version of the C standard to use.
+
+Header files are files that contain function prototypes, macros, and other declarations that are needed by the code in a program. They are included in source files using the #include directive. Standard C library header files have a .h extension (e.g., stdio.h), while user-defined header files can have any extension.
