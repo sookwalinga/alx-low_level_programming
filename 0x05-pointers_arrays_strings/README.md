@@ -1,7 +1,7 @@
 1. Pointers and how to use them:
 A pointer is a variable that stores the memory address of another variable. Pointers are used to indirectly access or manipulate the values of variables in memory. To use a pointer, we need to declare a pointer variable of the appropriate type, and then assign the address of the variable we want to point to using the address-of operator &. We can then use the dereference operator * to access or modify the value stored at the memory address pointed to by the pointer.
 
-For example, consider the following code:
+For example:
 
 ```
 int n = 42;
@@ -14,7 +14,7 @@ In this code, we declare an integer variable n and initialize it to the value of
 2. Arrays and how to use them:
 An array is a collection of variables of the same type that are stored in contiguous memory locations. Arrays are used to store and manipulate multiple values of the same type using a single variable name. To declare an array, we need to specify the type of the elements in the array and the number of elements in the array. We can then access the individual elements of the array using their index, which starts at 0 for the first element.
 
-For example, consider the following code:
+For example:
 
 ```
 int arr[5] = {1, 2, 3, 4, 5};
