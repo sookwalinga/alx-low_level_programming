@@ -1,7 +1,17 @@
 #include "main.h"
 
 /**
- * _puts - prints a string, followed by a new line, to stdout
+ * _putchar - writes a character to stdout
+ *
+ * @c: the character to be printed
+ *
+ * Return: On success 1, on error -1.
+ */
+int _putchar(char c);
+
+/**
+ * _puts - prints a string to stdout, followed by a new line
+ *
  * @str: the string to be printed
  *
  * Return: void

@@ -1,21 +1,24 @@
-#include <stdio.h>
+#include "main.h"
 
 /**
- * _strlen - Computes the length of a string
+ * print_rev - Prints a string in reverse, followed by a new line
  *
  * @s: Pointer to the first character of the string
- *
- * Return: The length of the string
  */
-int _strlen(char *s)
+void print_rev(char *s)
 {
 int len = 0;
+int i;
 
-while (*s != '\0')
+while (*(s + len) != '\0')
 {
 len++;
-s++;
 }
 
-return len;
+for (i = len - 1; i >= 0; i--)
+{
+_putchar(*(s + i));
+}
+
+_putchar('\n');
 }
