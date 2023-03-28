@@ -7,7 +7,7 @@
 int _atoi(char *s)
 {
 int sign = 1;
-unsigned int num = 0;
+int num = 0;
 int i = 0;
 
 while (s[i] != '\0')
@@ -27,10 +27,5 @@ break;
 i++;
 }
 
-if (num > INT_MAX && sign == 1)
-return INT_MAX;
-else if (num > INT_MAX && sign == -1)
-return INT_MIN;
-else
-return (num * sign);
+return (num *sign);
 }
