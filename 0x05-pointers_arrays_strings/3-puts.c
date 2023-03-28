@@ -1,7 +1,8 @@
 #include "main.h"
 
 /**
- * _puts - prints a string, followed by a new line, to stdout
+ * _putchar - initializes char c
+ * _puts - prints a string,then a new line, to stdout
  * @str: the string to be printed
  *
  * Return: void
