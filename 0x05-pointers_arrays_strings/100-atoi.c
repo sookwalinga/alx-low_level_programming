@@ -15,7 +15,12 @@ if (s[i] == '-') {
 sign = sign * -1;
 }
 if (s[i] >= '0' && s[i] <= '9') {
-num = num * 10 + (s[i] - '0');
+int digit = s[i] - '0';
+if (num > INT_MAX / 10 || (num == INT_MAX / 10 && digit > INT_MAX % 10)) {
+/* Integer overflow */
+return sign == 1 ? INT_MAX : INT_MIN;
+}
+num = num * 10 + digit;
 if (s[i + 1] < '0' || s[i + 1] > '9') {
 break;
 }
