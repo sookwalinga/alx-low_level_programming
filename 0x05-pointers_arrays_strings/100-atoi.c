@@ -6,35 +6,22 @@
  */
 int _atoi(char *s)
 {
-int sign = 1, result = 0, i = 0;
+int sign = 1;
+int num = 0;
+int i = 0;
 
-/* Handle leading whitespace */
-while (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
-i++;
-
-/* Handle optional sign */
-if (s[i] == '-')
-sign = -1;
-
-if (s[i] == '+' || s[i] == '-')
-i++;
-
-/* Process remaining digits */
-while (s[i] >= '0' && s[i] <= '9')
-{
-/* Check for overflow */
-if (result > INT_MAX / 10 ||
-(result == INT_MAX / 10 && s[i] - '0' > INT_MAX % 10))
-{
-return sign == 1 ? INT_MAX : INT_MIN;
+while (s[i] != '\0') {
+if (s[i] == '-') {
+sign = sign * -1;
 }
-
-/* Append digit to result */
-result = result * 10 + (s[i] - '0');
-
+if (s[i] >= '0' && s[i] <= '9') {
+num = num * 10 + (s[i] - '0');
+if (s[i + 1] < '0' || s[i + 1] > '9') {
+break;
+}
+}
 i++;
 }
 
-/* Apply sign and return result */
-return (sign * result);
+return (num * sign);
 }
