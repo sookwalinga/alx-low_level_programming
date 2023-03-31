@@ -8,22 +8,22 @@
  *
  * Return: Pointer to modified string.
  */
-char *cap_string(char *str)
+char *cap_string(char *s)
 {
 int i;
 
-i = 0;
-while (str[i] != '\0')
+for (i = 0; s[i] != '\0'; i++)
 {
-if (i == 0 || str[i - 1] == ' ' || str[i - 1] == '\t' || str[i - 1] == '\n' ||
-str[i - 1] == ',' || str[i - 1] == ';' || str[i - 1] == '.' || str[i - 1] == '!' ||
-str[i - 1] == '?' || str[i - 1] == '"' || str[i - 1] == '(' || str[i - 1] == ')' ||
-str[i - 1] == '{' || str[i - 1] == '}')
+/* capitalize first letter of each word */
+if ((i == 0 || s[i - 1] == ' ' || s[i - 1] == '\t' || s[i - 1] == '\n' ||
+ s[i - 1] == ',' || s[i - 1] == ';' || s[i - 1] == '.' ||
+ s[i - 1] == '!' || s[i - 1] == '?' || s[i - 1] == '"' ||
+ s[i - 1] == '(' || s[i - 1] == ')' || s[i - 1] == '{' ||
+ s[i - 1] == '}') && (s[i] >= 'a' && s[i] <= 'z'))
 {
-str[i] = toupper(str[i]);
+s[i] -= 32; /* ASCII code for uppercase letters */
 }
-i++;
 }
 
-return (str);
+return s;
 }
