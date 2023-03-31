@@ -12,18 +12,16 @@
 char *_strcat(char *dest, char *src)
 {
 int dest_len = 0;
-int i = 0;
 
+// Find the length of dest
 while (dest[dest_len] != '\0')
 dest_len++;
 
-while (src[i] != '\0')
-{
+// Append src to dest
+for (int i = 0; src[i] != '\0'; i++)
 dest[dest_len + i] = src[i];
-i++;
-}
-
 dest[dest_len + i] = '\0';
 
-return (dest);
+return dest;
 }
+
