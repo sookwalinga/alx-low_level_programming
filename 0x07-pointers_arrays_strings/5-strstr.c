@@ -9,24 +9,19 @@
  */
 char *_strstr(char *haystack, char *needle)
 {
-char *h, *n;
-
-while (*haystack != '\0')
+for (; *haystack != '\0'; haystack++)
 {
-h = haystack;
-n = needle;
+char *l = haystack;
+char *p = needle;
 
-while (*haystack != '\0' && *n != '\0' && *haystack == *n)
+while (*l == *p && *p != '\0')
 {
-haystack++;
-n++;
+l++;
+p++;
 }
 
-if (*n == '\0')
-return (h);
-
-haystack = h + 1;
+if (*p == '\0')
+return (haystack);
 }
-
-return (NULL);
+return (0);
 }
