@@ -1,0 +1,7 @@
+Recursion is a programming technique in which a function calls itself to solve a problem. In other words, a function that uses recursion solves a problem by breaking it down into smaller subproblems and then solving each of those subproblems recursively.
+
+To implement recursion, you define a function that calls itself with a modified version of the original input parameters. The function continues to call itself with modified parameters until it reaches a base case, at which point the function returns a value that is used to compute the final result.
+
+Recursion can be useful in situations where a problem can be broken down into smaller subproblems that are of the same type as the original problem. For example, searching for an item in a binary search tree can be implemented using recursion because the search can be broken down into smaller searches on the left and right subtrees.
+
+Recursion may not be the best approach in situations where the problem can be solved more efficiently using a loop or an iterative approach. Recursive functions may also use up a lot of memory and can lead to stack overflow errors if the recursion depth becomes too large. Additionally, recursive functions can be more difficult to read and debug than their iterative counterparts.
