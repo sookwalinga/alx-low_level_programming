@@ -4,6 +4,9 @@
  *
  * Return: 1 if the string is a palindrome, 0 otherwise
  */
+
+#include <stdio.h>
+
 int is_palindrome(char *s)
 {
 int len = _strlen_recursion(s);
