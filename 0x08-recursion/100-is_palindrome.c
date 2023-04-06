@@ -2,7 +2,7 @@
 #include <string.h>
 
 /**
- * is_palindrome - checks if a string is a palindrome
+ * is_palindrome - checks if a string is a palindrome using recursion
  * @s: the string to check
  *
  * Return: 1 if the string is a palindrome, 0 otherwise
@@ -10,15 +10,18 @@
 int is_palindrome(char *s)
 {
 int len = strlen(s);
-int i;
 
-for (i = 0; i < len / 2; i++)
+if (len <= 1)
 {
-if (s[i] != s[len - 1 - i])
+return 1;
+}
+else if (s[0] != s[len - 1])
 {
 return 0;
 }
+else
+{
+s[len - 1] = '\0';
+return is_palindrome(&s[1]);
 }
-
-return (1);
 }
