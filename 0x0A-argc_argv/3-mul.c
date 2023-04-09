@@ -8,7 +8,7 @@
  *
  * Return: 0 if success, 1 otherwise
  */
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
 int num1, num2, result;
 
