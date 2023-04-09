@@ -2,15 +2,15 @@
 #include <stdlib.h>
 
 /**
- * main - Entry point of the program
- * @argc: Number of arguments
- * @argv: Array of strings containing the arguments
+ * main - Entry point
+ * @argc: The number of arguments passed to the program
+ * @argv: An array containing the arguments passed to the program
  *
  * Return: 0 on success, 1 on error
  */
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
-int cents, coins;
+int cents, coins = 0;
 
 if (argc != 2)
 {
@@ -19,38 +19,41 @@ return (1);
 }
 
 cents = atoi(argv[1]);
+
 if (cents < 0)
 {
 printf("0\n");
 return (0);
 }
 
-coins = 0;
-
-while (cents > 0)
+while (cents >= 25)
 {
-if (cents >= 25)
-{
+coins++;
 cents -= 25;
 }
-else if (cents >= 10)
+
+while (cents >= 10)
 {
+coins++;
 cents -= 10;
 }
-else if (cents >= 5)
+
+while (cents >= 5)
 {
+coins++;
 cents -= 5;
 }
-else if (cents >= 2)
+
+while (cents >= 2)
 {
+coins++;
 cents -= 2;
 }
-else
-{
-cents -= 1;
-}
 
+while (cents >= 1)
+{
 coins++;
+cents -= 1;
 }
 
 printf("%d\n", coins);
