@@ -12,9 +12,9 @@ Description: A structure that holds information about a dog
 
 struct dog
 {
-	char *name;
-	float age;
-	char *owner;
+char *name;
+float age;
+char *owner;
 };
 
 /**
