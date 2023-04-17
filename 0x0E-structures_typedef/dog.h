@@ -3,11 +3,12 @@
 
 /**
 
-struct dog - a dog's basic info
-@name: name of the dog
-@age: age of the dog
-@owner: name of the dog's owner
-Description: A structure that holds information about a dog
+ * struct dog - a dog's basic info
+ * @name: name of the dog
+ * @age: age of the dog
+ * @owner: name of the dog's owner
+ *  
+ * Description: A structure that holds information about a dog
 */
 
 struct dog
