@@ -3,13 +3,12 @@
 
 /**
  * struct dog - a dog's basic info
- * @name: name of the dog
- * @age: age of the dog
- * @owner: name of the dog's owner
- *  
- * Description: holds dog info
-*/
-
+ * @name: First member
+ * @age: Second member
+ * @owner: Third member
+ *
+ * Description: Longer description
+ */
 struct dog
 {
 	char *name;
@@ -18,7 +17,7 @@ struct dog
 };
 
 /**
- * dog_t - is typedef for struct dog
+ * dog_t - typedef for struct dog
  */
 typedef struct dog dog_t;
 
