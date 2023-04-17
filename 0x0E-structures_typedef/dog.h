@@ -7,14 +7,14 @@
  * @age: age of the dog
  * @owner: name of the dog's owner
  *  
- * Description: holds information about a dog
+ * Description: holds dog info
 */
 
 struct dog
 {
-char *name;
-float age;
-char *owner;
+	char *name;
+	float age;
+	char *owner;
 };
 
 /**
