@@ -21,3 +21,7 @@ int main() {
 }
 ```
 
+In this example, we declare a function foo that prints a message to the console. We then declare a function pointer variable func_ptr using the syntax void (*func_ptr)() which indicates that func_ptr is a pointer to a function that takes no arguments and returns nothing. We then initialize func_ptr to point to the address of foo using the address-of operator &. Finally, we call the function indirectly through the pointer using the syntax (*func_ptr)().
+
+### What does a function pointer exactly hold
+
