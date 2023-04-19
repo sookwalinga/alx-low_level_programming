@@ -2,10 +2,10 @@
 #include <stdio.h>
 
 /**
- * array_iterator - executes a function on each element of an array
+ * array_iterator - exec func on each elem of array
  * @array: pointer to an array of integers
  * @size: size of the array
- * @action: pointer to a function that takes an integer as argument and returns void
+ * @action: function(int) -> void
  *
  * Return: Nothing.
  */
