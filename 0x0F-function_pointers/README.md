@@ -1,6 +1,7 @@
 ## 0x0F. C - Function pointers
 
 ### What are function pointers and how to use them
+
 Function pointers are a feature of the C programming language that allow programmers to store and manipulate the memory addresses of functions. A function pointer is a variable that stores the memory address of a function, allowing the programmer to call the function indirectly through the pointer.
 
 Example of how to declare and use a function pointer in C:
@@ -25,3 +26,10 @@ In this example, we declare a function foo that prints a message to the console.
 
 ### What does a function pointer exactly hold
 
+A function pointer holds the memory address of a function, which is a numeric value representing the location of the first instruction of the function's code in the virtual memory of the program. The function pointer itself is a variable that is stored in memory like any other variable, and its value is the memory address of the function it points to.
+
+### Where does a function pointer point to in the virtual memory
+
+The memory location pointed to by a function pointer is typically located in the code segment of the program's virtual memory, which is a read-only area of memory containing the executable code of the program.
+
+Function pointers are a powerful feature of the C language that allow for dynamic dispatch and can be used to implement many programming patterns such as callbacks, function arrays, and function pointers as arguments.
