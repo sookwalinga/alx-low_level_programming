@@ -3,47 +3,6 @@
 #include <stdio.h>
 
 /**
- * print_char - prints a char
- * @ap: argument pointer
- */
-void print_char(va_list ap)
-{
-printf("%c", va_arg(ap, int));
-}
-
-/**
- * print_int - prints an int
- * @ap: argument pointer
- */
-void print_int(va_list ap)
-{
-printf("%d", va_arg(ap, int));
-}
-
-/**
- * print_float - prints a float
- * @ap: argument pointer
- */
-void print_float(va_list ap)
-{
-printf("%f", va_arg(ap, double));
-}
-
-/**
- * print_string - prints a string
- * @ap: argument pointer
- */
-void print_string(va_list ap)
-{
-char *str = va_arg(ap, char *);
-
-if (str == NULL)
-printf("(nil)");
-else
-printf("%s", str);
-}
-
-/**
  * print_all - prints anything
  * @format: format string containing types of arguments
  */
