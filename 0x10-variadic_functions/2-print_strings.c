@@ -4,7 +4,7 @@
 
 /**
  * print_all - prints anything
- * @format: list of types of arguments passed to the function
+ * @format: list of types of args passed to the func
  */
 void print_all(const char * const format, ...)
 {
