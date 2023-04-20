@@ -32,6 +32,8 @@ int sum(int count, ...)
 
 The `sum` function takes a count parameter followed by a variable number of integer arguments. It initializes a `va_list` object with `va_start`, retrieves each integer argument using `va_arg`, adds them up, and then cleans up the `va_list` object with `va_end`.
 
+### Why and how to use the const type qualifier
+
 The `const` type qualifier in C and C++ is used to indicate that a variable should not be modified. It can be applied to any type, including pointers and arrays. When a variable is declared as `const`, the compiler will generate an error if any attempt is made to modify its value.
 
 Example of how to use const in C:
