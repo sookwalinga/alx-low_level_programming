@@ -6,13 +6,12 @@
  * @n: the number of params
  * @...: the params to sum
  *
- * Return: the sum of params, or 0 if n == 0
+ * Return: if n == 0 - 0.
  */
 int sum_them_all(const unsigned int n, ...)
 {
 va_list args;
-unsigned int i;
-int sum = 0;
+unsigned int i, sum = 0;
 
 va_start(args, n);
 
