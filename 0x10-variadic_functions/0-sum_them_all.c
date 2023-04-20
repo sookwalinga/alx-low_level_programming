@@ -6,8 +6,9 @@
  * @n: the number of params
  * @...: the params to sum
  *
- * Return: if n == 0 - 0.
- */
+* Return: If n == 0 - 0.
+*  Otherwise - sum of all params.
+*/
 int sum_them_all(const unsigned int n, ...)
 {
 va_list args;
