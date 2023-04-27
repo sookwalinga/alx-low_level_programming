@@ -1,18 +1,9 @@
-section .data
-    message db "Hello, Holberton", 10
-
-section .text
-    global main
-
+global  main
+          extern    printf
 main:
-    push    rbp
-    mov     rbp, rsp
-    sub     rsp, 16
-
-    lea     rdi, [message]
-    mov     eax, 0
-    call    printf
-
-    mov     eax, 0
-    leave
-    ret
+	  mov   edi, format
+	  xor   eax, eax
+	  call  printf
+	  mov 	eax, 0
+	  ret
+format: db `Hello, Holberton\n`,0
