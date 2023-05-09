@@ -1,3 +1,11 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <errno.h>
+
+#define BUFFER_SIZE 1024
+
 /**
  * open_source_file - opens the source file for copying
  * @from: name of the file to copy from
@@ -33,17 +41,18 @@ return (fd_to);
 }
 
 /**
- * copy_contents - copies the contents of the source file to the destination file
- * @fd_from: file descriptor of the source file
- * @fd_to: file descriptor of the destination file
+ * copy_file - copies the contents of a file to another file
+ * @from: name of the file to copy from
+ * @to: name of the file to copy to
  *
- * Return: void
+ * Return: 0 on success, otherwise exits with error code
  */
-void copy_contents(int fd_from, int fd_to)
+int copy_file(const char *from, const char *to)
 {
+int fd_from = open_source_file(from);
+int fd_to = open_destination_file(to);
 ssize_t rd_count, wt_count;
 char buffer[BUFFER_SIZE];
-
 while ((rd_count = read(fd_from, buffer, BUFFER_SIZE)) > 0)
 {
 wt_count = write(fd_to, buffer, rd_count);
@@ -53,43 +62,21 @@ dprintf(STDERR_FILENO, "Error: Can't write to destination file\n");
 exit(99);
 }
 }
-
 if (rd_count == -1)
 {
 dprintf(STDERR_FILENO, "Error: Can't read from source file\n");
 exit(98);
 }
-}
-
-/**
- * close_file - closes a file
- * @fd: file descriptor of the file to close
- *
- * Return: void
- */
-void close_file(int fd)
+if (close(fd_from) == -1)
 {
-if (close(fd) == -1)
-{
-dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
+dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_from);
 exit(100);
 }
-}
-
-/**
- * cp - copies the contents of a file to another file
- * @from: name of the file to copy from
- * @to: name of the file to copy to
- *
- * Return: 0 on success, otherwise exits with error code
- */
-int cp(const char *from, const char *to)
+if (close(fd_to) == -1)
 {
-int fd_from = open_source_file(from);
-int fd_to = open_destination_file(to);
-copy_contents(fd_from, fd_to);
-close_file(fd_from);
-close_file(fd_to);
+dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_to);
+exit(100);
+}
 return (0);
 }
 
@@ -108,5 +95,5 @@ dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 return (97);
 }
 
-return (cp(argv[1], argv[2]));
+return (copy_file(argv[1], argv[2]));
 }
