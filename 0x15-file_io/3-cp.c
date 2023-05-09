@@ -1,70 +1,95 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include <errno.h>
-
-#define BUFFER_SIZE 1024
-
 /**
- * cp - copies the content of a file to another file
- * @from: the name of the file to copy from
- * @to: the name of the file to copy to
+ * open_source_file - opens the source file for copying
+ * @from: name of the file to copy from
  *
- * Return: 0 on success, otherwise an error code
+ * Return: file descriptor on success, otherwise exits with error code
  */
-int cp(const char *from, const char *to)
+int open_source_file(const char *from)
 {
-int fd_from, fd_to, rd_count, wt_count;
-char buffer[BUFFER_SIZE];
-
-/* Open the source file */
-fd_from = open(from, O_RDONLY);
+int fd_from = open(from, O_RDONLY);
 if (fd_from == -1)
 {
 dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", from);
-return (98);
+exit(98);
+}
+return (fd_from);
 }
 
-/* Open the destination file */
-fd_to = open(to, O_WRONLY | O_CREAT | O_TRUNC, 0664);
+/**
+ * open_destination_file - opens the destination file for copying
+ * @to: name of the file to copy to
+ *
+ * Return: file descriptor on success, otherwise exits with error code
+ */
+int open_destination_file(const char *to)
+{
+int fd_to = open(to, O_WRONLY | O_CREAT | O_TRUNC, 0664);
 if (fd_to == -1)
 {
 dprintf(STDERR_FILENO, "Error: Can't write to %s\n", to);
-return (99);
+exit(99);
+}
+return (fd_to);
 }
 
-/* Copy the contents of the source file to the destination file */
+/**
+ * copy_contents - copies the contents of the source file to the destination file
+ * @fd_from: file descriptor of the source file
+ * @fd_to: file descriptor of the destination file
+ *
+ * Return: void
+ */
+void copy_contents(int fd_from, int fd_to)
+{
+ssize_t rd_count, wt_count;
+char buffer[BUFFER_SIZE];
+
 while ((rd_count = read(fd_from, buffer, BUFFER_SIZE)) > 0)
 {
 wt_count = write(fd_to, buffer, rd_count);
 if (wt_count == -1 || wt_count != rd_count)
 {
-dprintf(STDERR_FILENO, "Error: Can't write to %s\n", to);
-return (99);
+dprintf(STDERR_FILENO, "Error: Can't write to destination file\n");
+exit(99);
 }
 }
 
 if (rd_count == -1)
 {
-dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", from);
-return (98);
+dprintf(STDERR_FILENO, "Error: Can't read from source file\n");
+exit(98);
+}
 }
 
-/* Close the source file */
-if (close(fd_from) == -1)
+/**
+ * close_file - closes a file
+ * @fd: file descriptor of the file to close
+ *
+ * Return: void
+ */
+void close_file(int fd)
 {
-dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_from);
-return (100);
-}
-
-/* Close the destination file */
-if (close(fd_to) == -1)
+if (close(fd) == -1)
 {
-dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_to);
-return (100);
+dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
+exit(100);
+}
 }
 
+/**
+ * cp - copies the contents of a file to another file
+ * @from: name of the file to copy from
+ * @to: name of the file to copy to
+ *
+ * Return: 0 on success, otherwise exits with error code
+ */
+int cp(const char *from, const char *to)
+{
+int fd_from = open_source_file(from);
+int fd_to = open_destination_file(to);
+copy_contents(fd_from, fd_to);
+close_file(fd_from);
+close_file(fd_to);
 return (0);
 }
 
